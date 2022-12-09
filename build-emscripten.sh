@@ -19,7 +19,7 @@ fi
 emcmake cmake -H"$SRC_DIR" -B"$BUILD_DIR" \
   -G Ninja \
   -DCMAKE_BUILD_TYPE=Release \
-  -DLIBRARY_OUTPUT_PATH="$INSTALL_PATH/lib" \
+  -DCMAKE_INSTALL_PREFIX="$INSTALL_PATH/lib" \
   -Dgtest_disable_pthreads=ON
 
 if [ $? != 0 ]; then
@@ -30,12 +30,10 @@ fi
 # ---
 
 rm -rf "$INSTALL_PATH" # XXX: REQUIRED?
-cmake --build "$BUILD_DIR"
+cmake --build "$BUILD_DIR" --target install
 
 if [ $? != 0 ]; then
   echo "BUILD FAILED!"
   exit -1
 fi
 
-cd "$INSTALL_PATH"
-ln -s "$SRC_PATH/include"
