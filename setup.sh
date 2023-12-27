@@ -1,8 +1,8 @@
 #!/bin/sh
 
-ARCHIVE_ZIP="release-1.12.1.zip"
+ARCHIVE_ZIP="v1.14.0.zip"
 ARCHIVE_SRC="https://github.com/google/googletest/archive/refs/tags/$ARCHIVE_ZIP"
-ARCHIVE_DIR="googletest-release-1.12.1"
+ARCHIVE_DIR="googletest-1.14.0"
 
 # ---
 
